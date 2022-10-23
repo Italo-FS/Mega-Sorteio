@@ -29,15 +29,29 @@
 				});
 			}
 
-			function sortear_numeros() {
-				document.querySelector("#resultado").innerHTML = ''				
-				lista_de_numeros_sorteados = []
+			function httpGet(theUrl)
+			{
+				var xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+				xmlHttp.send( null );
+				return xmlHttp.responseText;
+			}
 
-				while (lista_de_numeros_sorteados.length<6) {
-					lista_de_numeros_sorteados.push(sortear_e_testar_numero(lista_de_numeros_sorteados));
+			function containsDuplicates(array) {
+				if (array.length !== new Set(array).size) {
+					return true;
 				}
+				return false;
+			}
 
-				listar_numeros(lista_de_numeros_sorteados.sort());
+			function sortear_numeros() {
+				document.querySelector("#resultado").innerHTML = ''
+				let numeros_sorteados = httpGet("https://www.random.org/integers/?num=6&min=1&max=60&col=1&base=10&format=plain&rnd=new").split('\n').filter(n => n).map(n => ('0' + n).slice(-2)).sort()
+				if (containsDuplicates(numeros_sorteados)) {
+					sortear_numeros()
+					return
+				}
+				listar_numeros(numeros_sorteados)
 			}
 		</script>
 
