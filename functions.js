@@ -1,12 +1,15 @@
 frases_motivacionais = [
-	"A chance de ganhar na mega-sena é de 1 em 50.063.860.",
+	"A chance de ganhar na sena é de 1 em 50.063.860.",
+        "A chance de ganhar na quina é de 1 em 154.518.",
+        "A chance de ganhar na quadra é de 1 em 2.332.",
 	"48% das pessoas que ganharam na loteria continuaram trabalhando.",
 	"Muitos bilhetes premiados nunca são resgatados.",
 	"A maioria dos ganhadores acreditam que vão ganhar novamente.",
 	"O importante não é ganhar, o que importa é competir sem perder, nem empatar.",
 	"Pense como um boleto. Um boleto sempre vence!",
 	"A primeira loteria foi registrada na China entre 201 e 187 AC.",
-	"O Repasse Social é a atividade fim das Loterias CAIXA.<br>Valores são redistribuídos no país em áreas como Saúde,<br>Educação, Segurança, Esportes, entre outros."
+	"O Repasse Social é a atividade fim das Loterias CAIXA.<br>Valores são redistribuídos no país em áreas como Saúde,<br>Educação, Segurança, Esportes, entre outros.",
+        "O maior prêmio da história foi mais de US$1.500.000.000,00"
 ]
 
 
