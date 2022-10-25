@@ -8,64 +8,36 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 		
-		<script>
-			function sortear_mega_numero() {
-				return ('0' + (parseInt(Math.random()*60)+1)).slice(-2);
-			}
-
-			function sortear_e_testar_numero(lista_de_numeros_sorteados, numero_sorteado) {
-				numero_sorteado = sortear_mega_numero();
-				for (var i = 0; i < lista_de_numeros_sorteados.length; i++) {
-					if (lista_de_numeros_sorteados[i] == numero_sorteado) {
-						return sortear_e_testar_numero(lista_de_numeros_sorteados)
-					}
-				}
-				return numero_sorteado;
-			}
-
-			function listar_numeros(lista_de_numeros_sorteados) {
-				lista_de_numeros_sorteados.forEach(element => {
-					document.querySelector("#resultado").innerHTML += ' ' + element;
-				});
-			}
-
-			function httpGet(theUrl)
-			{
-				var xmlHttp = new XMLHttpRequest();
-				xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-				xmlHttp.send( null );
-				return xmlHttp.responseText;
-			}
-
-			function containsDuplicates(array) {
-				if (array.length !== new Set(array).size) {
-					return true;
-				}
-				return false;
-			}
-
-			function sortear_numeros() {
-				document.querySelector("#resultado").innerHTML = ''
-				let numeros_sorteados = httpGet("https://www.random.org/integers/?num=6&min=1&max=60&col=1&base=10&format=plain&rnd=new").split('\n').filter(n => n).map(n => ('0' + n).slice(-2)).sort()
-				if (containsDuplicates(numeros_sorteados)) {
-					sortear_numeros()
-					return
-				}
-				listar_numeros(numeros_sorteados)
-			}
-		</script>
-
+		<script src="functions.js"></script>
+		<link rel="stylesheet" href="styles.css">
 	</head>
-	<body>
+	<body id="backImage">
 		<div class="d-flex justify-content-center align-items-center h-100">
 			<div>
+				<div class="text-center">
+					<img src="trevo.png" class="img-fluid" style="height: 8em;width: 8em">
+				</div>				
+				<!-- <div style="height: 2em;"></div> -->
 				<h2 class="text-center">Mega Sorteio</h2>
-				<div class="mb-3">
-					<h1 id="resultado"></h1>
-				</div>		
-				<div class="mb-3 text-center">
-					<button type="button" onclick="sortear_numeros()" class="btn btn-primary">Click Me!</button>
+				<div style="height: 5em;"></div>
+				<div>
+					<h6 class="text-center" id="avisos">Clique em "Sortear!" e garanta seus números da sorte!</h6>
 				</div>
+				<div class="mb-3">
+					<h1 class="text-center" id="resultado"></h1>
+				</div>
+				<div>
+					<h6 class="text-center" id="frase_motivacional"></h6>
+				</div>
+				<div style="height: 5em;"></div>
+				<div class="mb-3 text-center">
+					<button type="button" onclick="sortear_numeros()" class="btn btn-success">Sortear!</button>
+				</div>				
+			</div>
+			<div class="text-center" id="footer">
+				Powered by <a href="https://www.random.org">RANDOM.ORG</a>
+				<br>
+				Bruno Aguiar | Italo Fontenele | Nayra Braga | Roberto Solheiro
 			</div>
 		</div>
 	</body>
