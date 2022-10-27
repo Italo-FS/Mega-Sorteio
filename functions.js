@@ -35,7 +35,7 @@ function contem_duplicados(array) {
 
 function sortear_numeros() {
 	document.querySelector("#resultado").innerHTML = ''
-	let numeros_sorteados = httpGet("https://www.random.org/integers/?num=6&min=1&max=60&col=1&base=10&format=plain&rnd=new")
+	let numeros_sorteados = httpGet("https://www.random.org/integers/?num=6&min=1&max=60&col=1&base=10&format=plain&rnd=new&unique=on")
 							.split('\n').filter(n => n).map(n => ('0' + n).slice(-2)).sort()
 	if (contem_duplicados(numeros_sorteados)) {
 		sortear_numeros()
